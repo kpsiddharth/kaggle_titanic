@@ -1,7 +1,7 @@
 from sklearn.neural_network.multilayer_perceptron import MLPClassifier
 import numpy
 
-clf = MLPClassifier(solver='lbfgs', early_stopping=True, validation_fraction=0.1, alpha=1e-5, hidden_layer_sizes=(16, 1))
+clf = MLPClassifier(solver='lbfgs', activation='tanh', max_iter=10000, validation_fraction=0.1, alpha=1e-5, hidden_layer_sizes=(6, 6, 1))
 
 def build_model(training_data, targets):
     clf.fit(training_data, targets)

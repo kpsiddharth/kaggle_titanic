@@ -43,6 +43,10 @@ def prepare_training_data():
 def prepare_test_data():
     dataFrame = pandas.read_csv(TEST_DATASET_PATH)
     test_data = prepare_data(dataFrame)
+
+    df = pandas.DataFrame(test_data)
+    df.to_csv("test_input_data.csv", header = True, index=False)
+    
     #print 'Test Data Dimensions = ', test_data[0, :]
     return (test_data)
     
@@ -199,13 +203,8 @@ if __name__ == "__main__":
     train_data = train_data[:800, :]
     targets = targets[:800]
 
-    #print 'Test Data Shape = ', shape(test_data)
-    #print 'Train Data Shape = ', shape(train_data)
-    
     solver.build_model(train_data, targets)
     solver.find_model_score(test_data, test_targets)
-    
-    prepare_training_data()
     
     test_data = prepare_test_data()
     test_output = solver.predict_test_data(test_data)
