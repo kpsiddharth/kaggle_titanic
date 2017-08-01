@@ -1,0 +1,15 @@
+PassengerId
+Name
+Cabin
+
+Pclass
+Sex
+Age
+SibSp
+Parch
+Ticket
+Fare
+Embarked
+
+
+Survived
